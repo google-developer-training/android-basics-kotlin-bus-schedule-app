@@ -17,13 +17,12 @@
     package="com.example.busschedule">
 
     <application
-        android:name="com.example.busschedule.BusScheduleApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BusSchedule">
+        android:theme="@style/Theme.BusScheduler">
         <activity android:name="com.example.busschedule.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
