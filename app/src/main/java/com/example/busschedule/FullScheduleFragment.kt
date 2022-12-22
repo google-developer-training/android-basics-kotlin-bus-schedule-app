@@ -77,15 +77,15 @@ class FullScheduleFragment: Fragment() {
         // call from potentially locking the UI, you should use a
         // coroutine scope to launch the function. Using GlobalScope is not
         // best practice, and in the next step we'll see how to improve this.
-        /*
         GlobalScope.launch(Dispatchers.IO) {
             busStopAdapter.submitList(viewModel.fullSchedule())
         }
-        */
+        /*
         GlobalScope.launch(Dispatchers.IO) {
             val fullSchedule = viewModel.fullSchedule()
             launch(Dispatchers.Main) {busStopAdapter.submitList(fullSchedule)}
         }
+        */
     }
 
     override fun onDestroyView() {

@@ -19,7 +19,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -79,15 +78,15 @@ class StopScheduleFragment: Fragment() {
         // call from potentially locking the UI, you should use a
         // coroutine scope to launch the function. Using GlobalScope is not
         // best practice, and in the next step we'll see how to improve this.
-/*
         GlobalScope.launch(Dispatchers.IO) {
             busStopAdapter.submitList(viewModel.scheduleForStopName(stopName))
         }
-*/
+/*
         GlobalScope.launch(Dispatchers.IO) {
-            val fullSchedule = viewModel.fullSchedule()
-            launch(Dispatchers.Main) {busStopAdapter.submitList(fullSchedule)}
+            val stopSchedule = viewModel.scheduleForStopName(stopName)
+            launch(Dispatchers.Main) {busStopAdapter.submitList(stopSchedule)}
         }
+*/
     }
 
     override fun onDestroyView() {
