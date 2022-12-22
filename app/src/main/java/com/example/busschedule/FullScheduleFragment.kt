@@ -30,6 +30,7 @@ import com.example.busschedule.viewmodels.BusScheduleViewModel
 import com.example.busschedule.viewmodels.BusScheduleViewModelFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class FullScheduleFragment: Fragment() {
@@ -45,9 +46,6 @@ class FullScheduleFragment: Fragment() {
             (activity?.application as BusScheduleApplication).database.scheduleDao()
         )
     }
-
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -78,7 +76,11 @@ class FullScheduleFragment: Fragment() {
         // coroutine scope to launch the function. Using GlobalScope is not
         // best practice, and in the next step we'll see how to improve this.
         GlobalScope.launch(Dispatchers.IO) {
-            busStopAdapter.submitList(viewModel.fullSchedule())
+            lifecycle.coroutineScope.launch {
+                viewModel.fullSchedule().collect {
+                    busStopAdapter.submitList(it)
+                }
+            }
         }
         /*
         GlobalScope.launch(Dispatchers.IO) {
