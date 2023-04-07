@@ -32,8 +32,8 @@
         android:padding="8dp"
         app:layout_constraintWidth_percent="0.5"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="@id/arrival_time_header"
-        app:layout_constraintEnd_toStartOf="parent"/>
+        app:layout_constraintEnd_toStartOf="@id/arrival_time_header"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/arrival_time_header"
